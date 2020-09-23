@@ -8,8 +8,8 @@
     "start": "next start",
     "lint": "semistandard",
     "dev:server": "vercel dev",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages"
+    "predeploy": "rm -rf out && next build && next export",
+    "deploy": "gh-pages -d out"
   },
   "dependencies": {
     "next": "9.5.3",
@@ -21,6 +21,7 @@
     "@types/react": "^16.9.49",
     "@vercel/node": "^1.8.3",
     "babel-eslint": "^10.1.0",
+    "gh-pages": "^3.1.0",
     "semistandard": "^14.2.3",
     "typescript": "^4.0.3",
     "vercel": "^20.1.1"
