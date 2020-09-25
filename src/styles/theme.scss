@@ -1,5 +1,8 @@
 // @import "https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap";
-@import "https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@1,300&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@1,300;1,500&display=swap";
+
+$white: #E4DFDA;
+$black: #161517;
 
 // Color system
 // $blue:    #0d6efd !default;
@@ -19,8 +22,12 @@ $success:       $yellow;
 // $info:          $cyan !default;
 $warning:       $red;
 // $danger:        $red !default;
-$light:         #E4DFDA;
-$dark:          #161517;
+$light:         $white;
+$dark:          $black;
+
+// Customize the light and dark text colors for use in our color contrast function.
+$color-contrast-dark:      $dark;
+$color-contrast-light:     $light;
 
 // Options
 //
@@ -67,3 +74,11 @@ $border-radius-lg:            .15rem !default;
 // stylelint-disable value-keyword-case
 // $font-family-sans-serif: 'Josefin Sans', sans-serif;
 $font-family-sans-serif: 'Zilla Slab', serif;
+
+$font-weight-bold: 500;
+
+// Buttons
+//
+// For each of Bootstrap's buttons, define text, background, and border color.
+
+$btn-font-weight: $font-weight-bold;
