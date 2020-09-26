@@ -1,3 +1,3 @@
 module.exports = {
-  basePath: '/myimages'
+  basePath: process.env.NODE_ENV === 'production' ? '/myimages' : undefined
 };
