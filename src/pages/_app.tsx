@@ -5,19 +5,23 @@ import Navbar from '../components/Navbar';
 
 import '../styles/globals.scss';
 
+const prefix = process.env.NEXT_PUBLIC_PREFIX;
+
 function MyApp ({ Component, pageProps }) {
   const [user, setUser] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
-    if (!user && router.pathname.startsWith('/dashboard')) {
+    console.log(router.pathname);
+    if (!user && router.pathname.startsWith(`${prefix}/dashboard`)) {
       router.push('login');
     }
   }, [user]);
 
   useEffect(() => {
     function handleRouteChange (url: string) {
-      if (!user && url.startsWith('/dashboard')) {
+      console.log(url);
+      if (!user && url.startsWith(`${prefix}/dashboard`)) {
         router.push('login');
       }
     }
