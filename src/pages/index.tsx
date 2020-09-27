@@ -1,11 +1,12 @@
-import LoginCard from '../components/LoginCard';
-import Navbar from '../components/Navbar';
+import Link from 'next/link';
 
 export default function Home () {
   return (
     <>
-      <Navbar />
-      <LoginCard />
+      <h2>Home</h2>
+      <Link href='/dashboard'>
+        <a>dashboard</a>
+      </Link>
     </>
   );
 }
