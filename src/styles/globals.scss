@@ -1,0 +1,13 @@
+@import "./theme";
+@import "./bootstrap";
+@import './icons/icons';
+
+body {
+  font-weight: 300;
+}
+
+div#__next {
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+}
