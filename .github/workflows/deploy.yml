@@ -17,23 +17,25 @@ jobs:
         node-version: [12.x]
 
     steps:
-    - name: Checkout 🛎️
+    - name: Checkout
       uses: actions/checkout@v2
       with:
         persist-credentials: false
 
-    - name: Build 🔧
+    - name: Setup Node
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-
-    - run: |
+      
+    - name: Build
+      run: |
         npm ci
         npm run build
         npm run export
+        touch out/.nojekyll
 
-    - name: Deploy 🚀
-      uses: JamesIves/github-pages-deploy-action@3
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@3.6.1
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BRANCH: gh-pages
