@@ -10,16 +10,29 @@ function MyApp ({ Component, pageProps }) {
   const router = useRouter();
 
   useEffect(() => {
-    if (!user && window.location.pathname.startsWith('/dashboard')) {
+    if (!user && router.pathname.startsWith('/dashboard')) {
       router.push('login');
     }
   }, [user]);
 
+  useEffect(() => {
+    function handleRouteChange (url: string) {
+      if (!user && url.startsWith('/dashboard')) {
+        router.push('login');
+      }
+    }
+    router.events.on('routeChangeStart', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeStart', handleRouteChange);
+    };
+  }, []);
+
   return (
     <>
       <Navbar />
-      <Component {...pageProps} />
-    </>);
+      <Component {...pageProps} user={user} setUser={setUser} />
+    </>
+  );
 }
 
 export default MyApp;
