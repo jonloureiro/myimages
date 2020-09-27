@@ -12,15 +12,13 @@ function MyApp ({ Component, pageProps }) {
   const router = useRouter();
 
   useEffect(() => {
-    console.log(router.pathname);
-    if (!user && router.pathname.startsWith(`${prefix}/dashboard`)) {
+    if (!user && window.location.pathname.startsWith(`${prefix}/dashboard`)) {
       router.push('login');
     }
   }, [user]);
 
   useEffect(() => {
     function handleRouteChange (url: string) {
-      console.log(url);
       if (!user && url.startsWith(`${prefix}/dashboard`)) {
         router.push('login');
       }
