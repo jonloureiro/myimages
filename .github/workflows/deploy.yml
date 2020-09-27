@@ -7,7 +7,7 @@ on:
   push:
     branches: [ master ]
     paths-ignore:
-    - 'src/functions/**'
+    - 'functions/**'
 
 jobs:
   build:
